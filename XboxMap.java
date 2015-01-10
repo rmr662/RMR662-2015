@@ -1,6 +1,7 @@
 package org.usfirst.frc.team662;
 
 public class XboxMap {
+	
 	// joystick constants
 	public static final int LeftJoyHoriz = 1;
 	public static final int LeftJoyVert = 2;
