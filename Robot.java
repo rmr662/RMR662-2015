@@ -2,6 +2,7 @@
 package org.usfirst.frc.team662.robot;
 
 // Base class for robots
+
 import edu.wpi.first.wpilibj.SampleRobot;
 
 public class Robot extends SampleRobot {

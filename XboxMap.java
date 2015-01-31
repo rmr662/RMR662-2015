@@ -1,11 +1,11 @@
 package org.usfirst.frc.team662.robot;
 
 public class XboxMap {
-	
+
 	// Port for the controller itself on the driver station
 	public static final int XBOX_PORT = 0;
 	public static final int MANIP_CONTROLLER = 1;
-	
+
 	// joystick constants
 	public static final int LEFT_JOY_HORIZ = 0;
 	public static final int LEFT_JOY_VERT = 1;
