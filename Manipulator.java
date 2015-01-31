@@ -10,6 +10,7 @@ public class Manipulator extends Component {
 	public static final int LIFT_PORT = 0;
 	public static final double BRAKE_VAL = 0.5;
 	public static final double DEAD_ZONE = 0.1;
+	public static final double LIFT_MULT = -(1 / 3.0);
 	
 	Talon liftMotor;
 	Solenoid airBrake;
@@ -36,7 +37,7 @@ public class Manipulator extends Component {
 			liftVal = 0;
 		}
 		
-		liftMotor.set(liftVal);
+		liftMotor.set(LIFT_MULT * liftVal);
 		
 		/*if(xbox.getRawAxis(XboxMap.RIGHT_TRIGGER) <= BRAKE_VAL){
 			airBrake.set(true);
