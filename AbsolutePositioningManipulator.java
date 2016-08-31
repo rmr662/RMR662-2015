@@ -49,7 +49,7 @@ public class AbsolutePositioningManipulator extends Component {
 		liftMotor = new Talon(MOTOR_PORT);
 		airBrake = new DoubleSolenoid(PCM_ID, BRAKE_PORT_ENG, BRAKE_PORT_REL);
 		lights = new Relay(LIGHT_PORT, Relay.Direction.kBoth);
-		xbox = new Joystick(XboxMap.MANIP_CONTROLLER);
+		xbox = new Joystick(XboxMap.DRIVE_CONTROLLER);
 		oldSwitchVal = false;
 		dropping = false;
 		lifting = false;
@@ -82,8 +82,14 @@ public class AbsolutePositioningManipulator extends Component {
 			lights.set(Relay.Value.kForward);
 		}
 		//lights.set(Relay.Value.kReverse);
-		double liftVal = -xbox.getRawAxis(XboxMap.LEFT_JOY_HORIZ);
-		double liftValFoSho = -xbox.getRawAxis(XboxMap.RIGHT_JOY_HORIZ);
+		//double liftVal = -xbox.getRawAxis(XboxMap.LEFT_JOY_HORIZ);
+		double liftVal = 0;
+		if (xbox.getRawButton(XboxMap.RB)){
+			liftVal = .5;
+		} else if (xbox.getRawButton(XboxMap.LB)){
+			liftVal = -.5;
+		}
+		/*double liftValFoSho = -xbox.getRawAxis(XboxMap.RIGHT_JOY_HORIZ);
 		if (Math.abs(liftValFoSho) > DEAD_ZONE) {
 			setBrake(false);
 
@@ -92,8 +98,8 @@ public class AbsolutePositioningManipulator extends Component {
 				moveMotor(FAST_MULT * liftValFoSho);
 			} else {
 				moveMotor(SLOW_MULT * liftValFoSho);
-			}
-		} else if (Math.abs(liftVal) > DEAD_ZONE && (upperSwitch.get() || liftVal > 0)) {
+			}*/
+		    if (Math.abs(liftVal) > DEAD_ZONE && (upperSwitch.get() || liftVal > 0)) {
 			setBrake(false);
 
 			if (xbox.getRawButton(XboxMap.A)) {
