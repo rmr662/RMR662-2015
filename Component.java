@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 package org.usfirst.frc.team662.robot;
-=======
-package org.usfirst.frc.team662;
->>>>>>> 62996a5e32d4ba76c287851115cd367d0a4cdcfb
 
+// Class for all components to extend, so they can be referenced as an array
 public abstract class Component {
 
 	abstract public void update();
-	
+
 }
